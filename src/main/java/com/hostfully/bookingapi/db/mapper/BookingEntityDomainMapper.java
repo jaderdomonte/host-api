@@ -1,7 +1,8 @@
 package com.hostfully.bookingapi.db.mapper;
 
 import com.hostfully.bookingapi.db.entity.*;
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.entity.vo.Period;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.domain.*;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ public class BookingEntityDomainMapper {
     public BookingEntity toEntity(Booking domain){
         GuestEntity guest = GuestEntity.builder().id(domain.getGuest().getId()).build();
         Period period = Period.builder().checkIn(domain.getPeriod().getCheckIn()).checkOut(domain.getPeriod().getCheckOut()).build();
-        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatusEnum.CONFIRMED.getId()).build();
+        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatus.CONFIRMED.getId()).build();
         PropertyEntity propertyEntity = PropertyEntity.builder().id(domain.getProperty().getId()).name(domain.getProperty().getName()).build();
 
         return BookingEntity.builder().guest(guest).property(propertyEntity).period(period).status(bookingStatusEntity).build();

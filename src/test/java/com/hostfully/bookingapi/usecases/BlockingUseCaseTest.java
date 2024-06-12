@@ -1,7 +1,7 @@
 package com.hostfully.bookingapi.usecases;
 
 import com.hostfully.bookingapi.db.entity.BlockingEntity;
-import com.hostfully.bookingapi.db.entity.Period;
+import com.hostfully.bookingapi.db.entity.vo.Period;
 import com.hostfully.bookingapi.db.entity.PropertyEntity;
 import com.hostfully.bookingapi.db.mapper.BlockingEntityDomainMapper;
 import com.hostfully.bookingapi.db.repository.BlockingRepository;

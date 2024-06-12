@@ -1,6 +1,6 @@
 package com.hostfully.bookingapi.domain;
 
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.exceptions.DomainObjectValidationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ class BookingTest {
             GuestNameVO guestNameVO = new GuestNameVO("Jordan", "Love");
             Property property = new Property(1L, "Beach House");
             PeriodVO periodVO = new PeriodVO(LocalDate.now(), LocalDate.now().plusDays(10));
-            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
             new Booking(1L, null, property, periodVO, bookingStatusVO);
         });
@@ -33,7 +33,7 @@ class BookingTest {
             GuestNameVO guestNameVO = new GuestNameVO("Jordan", "Love");
             Guest guest = new Guest(1L, guestNameVO);
             Property property = new Property(1L, "Beach House");
-            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
             new Booking(1L, guest, property, null, bookingStatusVO);
         });
@@ -47,7 +47,7 @@ class BookingTest {
             GuestNameVO guestNameVO = new GuestNameVO("Jordan", "Love");
             Guest guest = new Guest(1L, guestNameVO);
             PeriodVO periodVO = new PeriodVO(LocalDate.now(), LocalDate.now().plusDays(10));
-            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+            BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
             new Booking(1L, guest, null, periodVO, bookingStatusVO);
         });
@@ -82,7 +82,7 @@ class BookingTest {
         Guest guest = new Guest(1L, guestNameVO);
         Property property = new Property(1L, "Beach House");
         PeriodVO periodVO = new PeriodVO(LocalDate.now(), LocalDate.now().plusDays(10));
-        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
         new Booking(1L, guest, property, periodVO, bookingStatusVO);
 

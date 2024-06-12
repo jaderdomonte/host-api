@@ -1,5 +1,6 @@
 package com.hostfully.bookingapi.db.entity;
 
+import com.hostfully.bookingapi.db.entity.vo.Period;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

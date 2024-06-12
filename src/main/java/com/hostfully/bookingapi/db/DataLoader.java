@@ -1,7 +1,9 @@
 package com.hostfully.bookingapi.db;
 
 import com.hostfully.bookingapi.db.entity.*;
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.entity.vo.GuestName;
+import com.hostfully.bookingapi.db.entity.vo.Period;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.db.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -35,7 +37,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void createBookingStatus() {
-        Arrays.stream(BookingStatusEnum.values())
+        Arrays.stream(BookingStatus.values())
                 .forEach(statusEnum ->
                         bookingStatusRepository.save(BookingStatusEntity.builder().id(statusEnum.getId()).description(statusEnum.getDescription()).build()));
     }
@@ -69,7 +71,7 @@ public class DataLoader implements CommandLineRunner {
     private void createBookings() {
         GuestEntity guest = GuestEntity.builder().id(1L).build();
         Period period = Period.builder().checkIn(LocalDate.now().plusDays(10)).checkOut(LocalDate.now().plusDays(20)).build();
-        BookingStatusEntity bookingStatusEntity = new BookingStatusEntity(BookingStatusEnum.CONFIRMED.getId());
+        BookingStatusEntity bookingStatusEntity = new BookingStatusEntity(BookingStatus.CONFIRMED.getId());
         PropertyEntity propertyEntity = PropertyEntity.builder().id(1L).name("Lakefront Escape").build();
 
         bookingRepository.save(BookingEntity.builder().guest(guest).property(propertyEntity).period(period).status(bookingStatusEntity).build());

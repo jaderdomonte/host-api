@@ -1,4 +1,4 @@
-package com.hostfully.bookingapi.db.entity;
+package com.hostfully.bookingapi.db.entity.vo;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

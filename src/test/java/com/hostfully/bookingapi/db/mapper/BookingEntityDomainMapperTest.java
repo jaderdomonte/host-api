@@ -1,7 +1,9 @@
 package com.hostfully.bookingapi.db.mapper;
 
 import com.hostfully.bookingapi.db.entity.*;
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.entity.vo.GuestName;
+import com.hostfully.bookingapi.db.entity.vo.Period;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.domain.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,13 +31,13 @@ class BookingEntityDomainMapperTest {
         Guest guest = new Guest(1L, guestNameVO);
         Property property = new Property(1L, "Beach House");
         PeriodVO periodVO = new PeriodVO(LocalDate.now(), LocalDate.now().plusDays(10));
-        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CONFIRMED.getId(), BookingStatusEnum.CONFIRMED.getDescription());
+        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CONFIRMED.getId(), BookingStatus.CONFIRMED.getDescription());
 
         domain = new Booking(1L, guest, property, periodVO, bookingStatusVO);
 
         GuestEntity guestEntity = GuestEntity.builder().id(domain.getGuest().getId()).fullName(GuestName.builder().firstName("Brock").lastName("Purdy").build()) .build();
         Period periodEntity = Period.builder().checkIn(domain.getPeriod().getCheckIn()).checkOut(domain.getPeriod().getCheckOut()).build();
-        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatusEnum.CONFIRMED.getId()).description(BookingStatusEnum.CONFIRMED.getDescription()).build();
+        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatus.CONFIRMED.getId()).description(BookingStatus.CONFIRMED.getDescription()).build();
         PropertyEntity propertyEntity = PropertyEntity.builder().id(domain.getProperty().getId()).name(domain.getProperty().getName()).build();
 
         entity = BookingEntity.builder().id(1L).guest(guestEntity).property(propertyEntity).period(periodEntity).status(bookingStatusEntity).build();

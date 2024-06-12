@@ -1,6 +1,6 @@
 package com.hostfully.bookingapi.web.mapper;
 
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.domain.*;
 import com.hostfully.bookingapi.web.dto.GuestDto;
 import com.hostfully.bookingapi.web.dto.PeriodDto;
@@ -24,7 +24,7 @@ public class BookingDtoDomainMapper {
         Guest guest = new Guest(request.guestId());
         Property property = new Property(request.propertyId());
         PeriodVO periodVO = new PeriodVO(request.checkIn(), request.checkOut());
-        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CONFIRMED.getId(), BookingStatusEnum.CONFIRMED.getDescription());
+        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CONFIRMED.getId(), BookingStatus.CONFIRMED.getDescription());
         return new Booking(guest, property, periodVO, bookingStatusVO);
     }
 

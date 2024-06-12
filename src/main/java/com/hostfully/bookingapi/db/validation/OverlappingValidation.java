@@ -1,6 +1,6 @@
 package com.hostfully.bookingapi.db.validation;
 
-import com.hostfully.bookingapi.db.entity.Period;
+import com.hostfully.bookingapi.db.entity.vo.Period;
 import com.hostfully.bookingapi.db.repository.BlockingRepository;
 import com.hostfully.bookingapi.db.repository.BookingRepository;
 import com.hostfully.bookingapi.exceptions.PeriodOverlappingException;

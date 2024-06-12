@@ -2,7 +2,7 @@ package com.hostfully.bookingapi.usecases;
 
 import com.hostfully.bookingapi.db.entity.BookingEntity;
 import com.hostfully.bookingapi.db.entity.GuestEntity;
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.db.mapper.BookingEntityDomainMapper;
 import com.hostfully.bookingapi.db.repository.BookingRepository;
 import com.hostfully.bookingapi.db.repository.GuestRepository;
@@ -90,7 +90,7 @@ public class BookingUseCase {
     public void cancelBooking(Long id){
         LOG.info("Starting cancelling Booking {}", id);
         bookingRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("There is no Booking with id " + id));
-        bookingRepository.changeBookingStatus(id, BookingStatusEnum.CANCELED.getId());
+        bookingRepository.changeBookingStatus(id, BookingStatus.CANCELED.getId());
         LOG.info("Booking {} canceled", id);
     }
 
@@ -102,7 +102,7 @@ public class BookingUseCase {
         overlappingValidation.checkOverlappingBooking(entity.getId(), entity.getProperty().getId(), entity.getPeriod());
         overlappingValidation.checkOverlappingBlocking(entity.getProperty().getId(), entity.getPeriod());
 
-        bookingRepository.changeBookingStatus(id, BookingStatusEnum.CONFIRMED.getId());
+        bookingRepository.changeBookingStatus(id, BookingStatus.CONFIRMED.getId());
         LOG.info("Booking {} activated", id);
     }
 }

@@ -1,7 +1,7 @@
 package com.hostfully.bookingapi.db.repository;
 
 import com.hostfully.bookingapi.db.entity.BookingEntity;
-import com.hostfully.bookingapi.db.entity.Period;
+import com.hostfully.bookingapi.db.entity.vo.Period;
 import com.hostfully.bookingapi.web.request.BookingFilter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

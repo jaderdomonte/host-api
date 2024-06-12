@@ -10,14 +10,14 @@ as provide endpoints for creating, reading, updating and deleting Blockings.
 ## Instalation
 Follow these steps to get started:
 
-1. Clone this repo (git clone https://github.com/jaderdomonte/booking-api.git)
+1. Clone this repo (git clone https://github.com/jaderdomonte/host-api.git)
 
 2. Get into the project folder that has the pom.xml file.
 
 3. Execute the commands below:
 
     - mvn package
-    - java -jar target/booking-api-0.0.1-SNAPSHOT.jar
+    - java -jar target/host-api-0.0.1-SNAPSHOT.jar
 
 Or skip steps 2 and 3 and import the project into your IDE and run it.
 
@@ -62,10 +62,10 @@ Blockings
    - Delete Blocking.
 
 Obs: Assuming that Check in must start after **2pm** and CheckOut must end before **11am**. This rule will be valid for Bookings and Blockings. Therefore, it is possible to have the following scenarios for the same property:
-1. A Blocking Check in **2024-03-15** and Check out **2024-03-21**
-2. A Booking Check in **2024-03-21** and Check out **2024-03-25**
-3. A Booking Check in **2024-03-25** and Check out **2024-03-28**
-4. A Blocking Check in **2024-03-28** and Check out **2024-04-05**
+1. A Blocking Check in **2024-06-12** and Check out **2024-06-21**
+2. A Booking Check in **2024-06-21** and Check out **2024-06-25**
+3. A Booking Check in **2024-06-25** and Check out **2024-06-28**
+4. A Blocking Check in **2024-06-28** and Check out **2024-07-05**
 
 ## Documentation
 Access http://localhost:4000/swagger-ui/index.html#/ to test all features and see full documentation.

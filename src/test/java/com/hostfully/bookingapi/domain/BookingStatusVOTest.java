@@ -1,6 +1,6 @@
 package com.hostfully.bookingapi.domain;
 
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.exceptions.DomainObjectValidationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +22,7 @@ class BookingStatusVOTest {
 
     @Test
     void shouldCreateDomainObjectWithRequiredFields() {
-        new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+        new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
         assertDoesNotThrow(() -> DomainObjectValidationException.class);
     }

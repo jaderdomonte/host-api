@@ -1,7 +1,8 @@
 package com.hostfully.bookingapi.usecases;
 
 import com.hostfully.bookingapi.db.entity.*;
-import com.hostfully.bookingapi.db.enumeration.BookingStatusEnum;
+import com.hostfully.bookingapi.db.entity.vo.Period;
+import com.hostfully.bookingapi.db.enumeration.BookingStatus;
 import com.hostfully.bookingapi.db.mapper.BookingEntityDomainMapper;
 import com.hostfully.bookingapi.db.repository.BookingRepository;
 import com.hostfully.bookingapi.db.repository.GuestRepository;
@@ -58,13 +59,13 @@ class BookingUseCaseTest {
         Guest guest = new Guest(1L, guestNameVO);
         Property property = new Property(1L, "Beach House");
         PeriodVO periodVO = new PeriodVO(LocalDate.now(), LocalDate.now().plusDays(10));
-        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatusEnum.CANCELED.getId(), BookingStatusEnum.CANCELED.getDescription());
+        BookingStatusVO bookingStatusVO = new BookingStatusVO(BookingStatus.CANCELED.getId(), BookingStatus.CANCELED.getDescription());
 
         domain = new Booking(1L, guest, property, periodVO, bookingStatusVO);
 
         GuestEntity guestEntity = GuestEntity.builder().id(domain.getGuest().getId()).build();
         Period periodEntity = Period.builder().checkIn(domain.getPeriod().getCheckIn()).checkOut(domain.getPeriod().getCheckOut()).build();
-        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatusEnum.CONFIRMED.getId()).build();
+        BookingStatusEntity bookingStatusEntity = BookingStatusEntity.builder().id(BookingStatus.CONFIRMED.getId()).build();
         PropertyEntity propertyEntity = PropertyEntity.builder().id(domain.getProperty().getId()).name(domain.getProperty().getName()).build();
 
         entity = BookingEntity.builder().guest(guestEntity).property(propertyEntity).period(periodEntity).status(bookingStatusEntity).build();

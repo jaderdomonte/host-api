@@ -1,6 +1,6 @@
 package com.hostfully.bookingapi.domain;
 
-import com.hostfully.bookingapi.db.entity.Period;
+import com.hostfully.bookingapi.db.entity.vo.Period;
 import com.hostfully.bookingapi.exceptions.DomainObjectValidationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
